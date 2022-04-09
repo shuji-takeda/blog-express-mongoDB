@@ -3,8 +3,11 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { ArticleModel } from './models/articles';
 import articleRouter from './routes/articles';
 
+
+require('dotenv').config();
+const env = process.env;
 // Connection URI
-const uri = `mongodb+srv://shuji-takeda:12345@cluster0.ly05p.mongodb.net/Cluster0?retryWrites=true&w=majority`;
+const uri: string = env.MONGODB_URL || '';
 
 // Create a new MongoClient
 const client = new MongoClient(uri);
